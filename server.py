@@ -23,7 +23,7 @@ def getGoogleSpeechURL(phrase):
 def speakSpeechFromText(phrase):
         googleSpeechURL = getGoogleSpeechURL(phrase)
         downloadFile(googleSpeechURL,"tts.mp3")
-        os.system("mplayer tts.mp3")
+        os.system("mpg321 tts.mp3")
 
 
 app = Flask(__name__)
