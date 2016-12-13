@@ -28,7 +28,7 @@ Click on the number and you should find a category called “messaging”. Then,
 
 For the software we have to do two things, first listen for notification of incoming SMS from Twilio and then use Google translation text to speech. 
 
-For the first part Twilio made a great job providing lots of tutorials and example code. I used an example that creates a server on the Raspberry pi with Flask that waits for incoming SMS messages and replies with a SMS to the number. In our case we didn’t need to reply so I removed it from the code. Resin exposes only port 8080 and 80 so we modified the code to listen on port 8080. 
+For the first part Twilio made a great job providing lots of tutorials and example code. I used an example that creates a server on the Raspberry pi with Flask that waits for incoming SMS messages and replies with a SMS to the number. In our case we didn’t need to reply so I removed it from the code. Resin exposes only port  80.
 
 ```python
 app = Flask(__name__)
@@ -43,7 +43,7 @@ def hello_monkey():
 
 if __name__ == "__main__":
 	print "Hello twilio"
-    app.run( host='0.0.0.0', debug=True, port = 8080)
+    app.run( host='0.0.0.0', debug=True, port = 80)
 ```
 
 When we receive a valid incoming SMS, we simply parse the SMS message and then we sent them to the Google servers that converts the message to sound. From Google we download a mp3 file that contains the message and finally mplayer is used to play file. 
@@ -80,7 +80,7 @@ Clone the project by running git clone https://github.com/nchronas/sms2speech.gi
 
 ####Resin getting started:
 
-http://flask.pocoo.org/docs/0.10/tutorial/
+https://docs.resin.io/raspberrypi/nodejs/getting-started/
 
 ####Twilio example:
 
