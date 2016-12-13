@@ -1,10 +1,7 @@
 #!/usr/bin/python
 
 from flask import Flask, request, redirect
-
-from num2words import num2words
 from subprocess import call
-
 import twilio.twiml
 import urllib, pycurl, os
 
