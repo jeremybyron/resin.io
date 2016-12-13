@@ -18,18 +18,16 @@ def downloadFile(url, fileName):
         fp.close()
 
 def speakSpeechFromText(phrase):
-cmd_beg= 'espeak '
-cmd_end= 'aplay Text.wav  2>/dev/null' # To play back the stored .wav file and to dump the std errors to /dev/null
-cmd_out= '--stdout > Text.wav ' # To store the voice file
+	cmd_beg= 'espeak '
+	cmd_end= 'aplay Text.wav  2>/dev/null' # To play back the stored .wav file and to dump the std errors to /dev/null
+	cmd_out= '--stdout > Text.wav ' # To store the voice file
 
-#Replacing ' ' with '_' to identify words in the text entered
-text = phrase.replace(' ', '_')
+	#Replacing ' ' with '_' to identify words in the text entered
+	text = phrase.replace(' ', '_')
 
-#Calls the Espeak TTS Engine to read aloud a Text
-call([cmd_beg+cmd_out+text], shell=True)
-call([cmd_end], shell=True)
-
-
+	#Calls the Espeak TTS Engine to read aloud a Text
+	call([cmd_beg+cmd_out+text], shell=True)
+	call([cmd_end], shell=True)
 
 app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
